@@ -48,13 +48,13 @@ function runProgram(){
         speedX = -5;                                // the speed of the box when left arrow is pressed
         console.log("left pressed");                // prints "left pressed" when left arrow pressed
     } else if (event.which === KEY.UP){             // sets off a certain set of code if the up arrow key is pressed
-        speedY = 5;                                 // the speed of the box when up arrow is pressed
+        speedY = -5;                                 // the speed of the box when up arrow is pressed
         console.log("up pressed");                  // prints "up pressed" when up arrow pressed
     } else if (event.which === KEY.RIGHT){          // sets off a certain set of code if the right arrow key is pressed
         speedX = 5;                                 // the speed of the box when right arrow is pressed
         console.log("right pressed");               // prints "right pressed" when right arrow pressed
     } else if (event.which === KEY.DOWN){           // sets off a certain set of code if the down arrow key is pressed
-        speedY = -5;                                // the speed of the box when down arrow is pressed
+        speedY = 5;                                // the speed of the box when down arrow is pressed
         console.log("down pressed");                // prints "down pressed" left arrow when pressed
     }
 }
