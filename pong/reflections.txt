@@ -1,0 +1,95 @@
+    User Story / Gameplay:
+
+Describe the gameplay.
+    - Pong is a two-player game that takes inspiration from real-life ping-pong. There are two paddles -- one for each player.
+      The objective of the game is to keep the ball within the bounds by hitting it.
+      The player that is unable to hit the ball back into the bounds will gain no points, while the other player scores a point.
+
+What are the conditions when the game begins?
+    - The game begins automatically.
+      Optional: The game begins when the player clicks the screen and presses a key.
+
+Does the game have an end? If so, what are the conditions for when it ends?
+    - Yes, the game ends once a player has a total score of 11 points.
+
+What ifs will there be?
+    - if the ball is hit out of bounds then the round ends and the ball is reset to its original position
+    - if a player reaches a score of 11 then the game ends
+    - if the game ends then the playsers' scores reset
+
+
+    Visual Game Components:
+What are the visual game components? For example, in Bouncing Box, the game components were the board and the box.
+    - player 1's paddle
+    - player 2's paddle
+    - the ping pong ball
+
+Which will be static? (the board)
+    - the dotted line separating the two players
+
+Which will be animated? (the box)
+    - the ball
+    - the paddles
+
+What data will you need to manage each game component? For example, in Bouncing Box, the data values were positionX, speedX, and points.
+    - dotted line: positionX, positionY (both fixed)
+    - paddles: positionX (fixed), positionY (fluctuates), speedY
+    - ball: positionX, positionY, speedX, & speedY
+    - players: points
+
+
+    Events / Logic:
+What events will occur in this game? (timer events, keyboard events, clicking events)
+    - timer event: 
+        > the ball will increase in speed after 30s have elapsed
+    - keyboard events:
+        > player 1's paddle - moves up when the up arrow is pressed; moves down when the down arrow is pressed
+        > player 2's paddle - moves up when the W key is pressed; moves down S key is pressed
+    - clicking events:
+        > on click - game starts(the pong ball drops)
+
+How do those events affect the data of the program?
+    - timer event:
+        > increases the difficulty of game
+        > affects the score board
+    - keyboard events:
+        > ball moves in a different direction when it is hit
+        > if either player's paddle fails to hit the ball in time and the ball goes out of bounds, the opponent gains a point: scores change
+    - clicking event
+        > sets off the code to begin the game
+        > drops the ball/triggers the timer event
+
+For each "event", write out the high-level logic of what will happen. It is better (and tricky) to be as specific as you can while remaining high-level!
+    - timer event
+        > 30s elapse
+        > The ball's speed increases by 1
+    - keyboard events
+        Player 1's Paddle:
+            > Up Arrow Pressed
+            > positionY1 changes
+            > Paddle moves in the positive direction (above the original starting point)
+            > if positionY1 > boardHeight -> positionY1 = boardHeight (paddle can no longer move up)
+
+            > Down Arrow Pressed
+            > positionY1 changes
+            > Paddle moves in negative direction (below the original starting point)
+            > if positionY1 < 0 -> positionY1 = 0 (paddle can no longer move down)
+        Player 2's Paddle:
+            > W key Pressed
+            > positionY2 changes
+            > Paddle moves in the positive direction (above the original starting point)
+            > if positionY2 > boardHeight -> positionY2 = boardHeight (paddle can no longer move up)
+
+            > S key Pressed
+            > positionY2 changes
+            > Paddle moves in negative direction (below the original starting point)
+            > if positionY2 < 0 -> positionY2 = 0 (paddle can no longer move down)
+    - clicking event
+        > on click
+        > ball drops/starts moving
+        > timer event is triggered (starts counting)
+        
+                For example: in bouncing box, when the box is clicked:
+                    The speed is increased
+                    The point total goes up by 1 and is displayed on the box
+                    The position of the box is reset to 0
